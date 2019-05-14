@@ -14,8 +14,6 @@ RUN apk --update add curl wget mysql-client
 RUN curl -k -L https://github.com/edrisse/epts-database-merge/archive/master.zip -o /home/master.zip
 RUN unzip /home/master.zip
 
-COPY script /home
-
 COPY etc/start.sh /home
 CMD "/home/start.sh"
 
