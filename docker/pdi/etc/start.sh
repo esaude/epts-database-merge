@@ -10,3 +10,5 @@ done
 
 cd /epts-database-merge-master/script
 ./merge.sh
+
+sleep 10000
