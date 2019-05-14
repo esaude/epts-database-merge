@@ -1,0 +1,29 @@
+version: '3'
+services:
+  merge-tool-mysql:
+    environment:
+    - MYSQL_ROOT_PASSWORD=Admin123
+    - MYSQL_ROOT_HOST=%
+    image: merge-tool/mysql
+    #build: mysql
+    container_name: merge-tool-mysql
+    ports:
+    - "3309:3306"
+    networks:
+    - merge-tool-network
+  merge-tool-pdi:
+    environment:
+    - MERGE_TOOL_MERGE_DB=merge_db
+    - MERGE_TOOL_DB_HOST=merge-tool-mysql
+    - MERGE_TOOL_DB_USER=root
+    image: merge-tool/pdi
+    #build: pdi
+    container_name: merge-tool-pdi
+    volumes:
+    - "./dumps-to-process:/root/dumps-to-process"
+    depends_on: 
+    - merge-tool-mysql
+    networks:
+    - merge-tool-network
+networks:
+  merge-tool-network:
