@@ -8,4 +8,5 @@ do
   mysql -u$MERGE_TOOL_DB_USER -pAdmin123 -h$MERGE_TOOL_DB_HOST -e "select 1;"
 done
 
-/epts-database-merge-master/script/merge.sh
+cd /epts-database-merge-master/script
+./merge.sh
