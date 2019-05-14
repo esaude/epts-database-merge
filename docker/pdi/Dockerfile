@@ -1,5 +1,5 @@
 # docker run --name merge-tool-pdi --rm merge-tool/pdi:latest
-# docker build -t merge-tool/pdi pdi
+# docker build --no-cache -t merge-tool/pdi pdi
 FROM openjdk:8u131-jdk-alpine
 RUN apk --update add curl wget mysql-client bash
 
