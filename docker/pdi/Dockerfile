@@ -11,6 +11,9 @@ RUN apk --update add curl wget mysql-client
 #RUN curl -k -L https://github.com/jwilder/dockerize/releases/download/v0.2.0/dockerize-linux-amd64-v0.2.0.tar.gz -o /home/dockerize-linux-amd64-v0.2.0.tar.gz
 #CMD "/home/data-integration/kitchen.sh -file /home/emr-to-mozart-etl-master/migrate-data.kjb"
 
+RUN curl -k -L https://github.com/edrisse/epts-database-merge/archive/master.zip -o /home/master.zip
+RUN unzip /home/master.zip
+
 COPY script /home
 
 COPY etc/start.sh /home
