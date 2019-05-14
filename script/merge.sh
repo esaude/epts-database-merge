@@ -32,11 +32,11 @@ do
     if [ $first -eq 1 ]
     then
         echo "Importing initial database into $merge_db from file $file"
-        #mysql -u$user -pAdmin123 $merge_db < $file
-        #mysql -u$user -pAdmin123 $merge_db < sql-scripts/merge.sql
+        mysql -u$user -pAdmin123 $merge_db < $file
+        mysql -u$user -pAdmin123 $merge_db < sql-scripts/merge.sql
         first=0
     else
         echo "Merging database $database from file $file"
-        #./merge-single-database.sh $file $database > "output/$database.out" &
+        ./merge-single-database.sh $file $database > "output/$database.out" &
     fi
 done
