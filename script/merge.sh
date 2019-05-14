@@ -40,3 +40,5 @@ do
         ./merge-single-database.sh $file $database > "output/$database.out" &
     fi
 done
+
+sleep 10000
