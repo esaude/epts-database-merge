@@ -16,11 +16,12 @@ services:
     - MERGE_TOOL_MERGE_DB=merge_db
     - MERGE_TOOL_DB_HOST=merge-tool-mysql
     - MERGE_TOOL_DB_USER=root
+    - MERGE_TOOL_DUMPS_DIR=/home/dumps-to-process
     image: merge-tool/pdi
     #build: pdi
     container_name: merge-tool-pdi
     volumes:
-    - "./dumps-to-process:/root/dumps-to-process"
+    - "./dumps-to-process:/home/dumps-to-process"
     depends_on: 
     - merge-tool-mysql
     networks:

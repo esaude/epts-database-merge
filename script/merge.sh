@@ -2,6 +2,7 @@
 merge_db=$MERGE_TOOL_MERGE_DB
 host=$MERGE_TOOL_DB_HOST
 user=$MERGE_TOOL_DB_USER
+dumps_directory=$MERGE_TOOL_DUMPS_DIR
 
 if [ -z $merge_db ]
 then
@@ -18,9 +19,14 @@ then
     user="etl"
 fi
 
+if [ -z $dumps_directory ]
+then
+    dumps_directory="dumps"
+fi
+
 mysql -u$user -pAdmin123 -h$host -e "drop database if exists $merge_db; create database $merge_db;"
 first=1
-for file in "dumps"/*
+for file in "$dumps_directory"/*
 do
     database=$(basename "$file" ".sql")
     if [ $first -eq 1 ]
