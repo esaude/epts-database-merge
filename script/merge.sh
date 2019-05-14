@@ -27,7 +27,7 @@ fi
 
 if [ -z $output_directory ]
 then
-    dumps_directory="output"
+    output_directory="output"
 fi
 
 mysql -u$user -pAdmin123 -h$host -e "drop database if exists $merge_db; create database $merge_db;"
