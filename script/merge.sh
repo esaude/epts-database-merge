@@ -24,8 +24,6 @@ then
     dumps_directory="dumps"
 fi
 
-export merge_db host user dumps_directory
-
 mysql -u$user -pAdmin123 -h$host -e "drop database if exists $merge_db; create database $merge_db;"
 first=1
 for file in "$dumps_directory"/*
