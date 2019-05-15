@@ -4,6 +4,7 @@ host=$MERGE_TOOL_DB_HOST
 user=$MERGE_TOOL_DB_USER
 dumps_directory=$MERGE_TOOL_DUMPS_DIR
 output_directory=$MERGE_TOOL_OUTPUT_DIR
+logs_directory=$MERGE_TOOL_LOGS_DIR
 
 if [ -z $merge_db ]
 then
@@ -30,6 +31,11 @@ then
     output_directory="output"
 fi
 
+if [ -z $logs_directory ]
+then
+    logs_directory="logs"
+fi
+
 mysql -u$user -pAdmin123 -h$host -e "drop database if exists $merge_db; create database $merge_db;"
 first=1
 for file in "$dumps_directory"/*
@@ -43,7 +49,7 @@ do
         first=0
     else
         echo "Merging database $database from file $file"
-        ./merge-single-database.sh $file $database > "$output_directory/$database.out"
+        ./merge-single-database.sh $file $database > "$logs_directory/$database.out"
     fi
 done
 
