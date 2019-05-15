@@ -38,7 +38,7 @@ do
     if [ $first -eq 1 ]
     then
         echo "Importing initial database into $merge_db from file $file"
-        mysql -u$user -pAdmin123 -h$MERGE_TOOL_DB_HOST $merge_db < $file
+#        mysql -u$user -pAdmin123 -h$MERGE_TOOL_DB_HOST $merge_db < $file
 #        mysql -u$user -pAdmin123 -h$MERGE_TOOL_DB_HOST $merge_db < sql-scripts/merge.sql
         first=0
     else

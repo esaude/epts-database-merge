@@ -9,6 +9,6 @@ do
 done
 
 cd /epts-database-merge-master/script
-#./merge.sh
+./merge.sh
 
 sleep 10000
