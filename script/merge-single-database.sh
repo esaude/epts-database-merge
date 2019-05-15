@@ -7,10 +7,6 @@ mysql -u$MERGE_TOOL_DB_USER -pAdmin123 -h$MERGE_TOOL_DB_HOST $DATABASE_NAME < $F
 if [ $? -eq 0 ]
 then
     echo "Merge effectuado com sucesso"
-    echo "Merge effectuado com sucesso"
-    echo "Merge effectuado com sucesso"
 else
-    echo "********Ocorreram erros na execução do Merge********"
-    echo "********Ocorreram erros na execução do Merge********"
     echo "********Ocorreram erros na execução do Merge********"
 fi

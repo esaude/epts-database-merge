@@ -3,12 +3,12 @@
 FROM openjdk:8u131-jdk-alpine
 RUN apk --update add curl wget mysql-client bash
 
-RUN mkdir /root/.kettle
+#RUN mkdir /root/.kettle
 COPY etc/kettle.properties /root/.kettle
 COPY etc/shared.xml /root/.kettle
 COPY etc/pdi-ce-8.2.0.0-342.zip /home
-RUN unzip /home/pdi-ce-8.2.0.0-342.zip
 
+RUN unzip /home/pdi-ce-8.2.0.0-342.zip
 RUN curl -L https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.44.zip -o /home/mysql-driver.zip
 RUN unzip /home/mysql-driver.zip -d /home
 RUN cp /home/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar /data-integration/lib

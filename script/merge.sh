@@ -43,6 +43,6 @@ do
         first=0
     else
         echo "Merging database $database from file $file"
-        ./merge-single-database.sh $file $database > "$output_directory/$database.out" &
+        ./merge-single-database.sh $file $database > "$output_directory/$database.out"
     fi
 done
