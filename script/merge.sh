@@ -54,5 +54,5 @@ do
 done
 
 dump_file_name="$merge_db.sql"
-echo "Dumping merge database $database into $dump_file_name"
+echo "Dumping merge database $merge_db into $dump_file_name"
 mysqldump -u$user -pAdmin123 -h$MERGE_TOOL_DB_HOST $merge_db > "$output_directory/$dump_file_name"
