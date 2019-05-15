@@ -3,7 +3,7 @@
 FROM openjdk:8u131-jdk-alpine
 RUN apk --update add curl wget mysql-client bash
 
-#RUN mkdir /root/.kettle
+RUN mkdir /root/.kettle
 COPY etc/kettle.properties /root/.kettle
 COPY etc/shared.xml /root/.kettle
 COPY etc/pdi-ce-8.2.0.0-342.zip /home
