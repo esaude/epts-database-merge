@@ -19,3 +19,6 @@ This instructions will help you run both versions of the tool.
 * Run setup script `./setup.sh`;
 * Copy the database dumps of the databases to be merged into `dumps` directory;
 * Run the merge tool `./merge.sh` from `epts-database-merge/script` directory;
+* After excution the logs for the merge of each database can be found on `epts-database-merge/script/logs` directory;
+* Merged database dump can be found on `epts-database-merge/script/output`;
+
