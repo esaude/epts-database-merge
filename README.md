@@ -22,3 +22,19 @@ This instructions will help you run both versions of the tool.
 * After excution the logs for the merge of each database can be found on `epts-database-merge/script/logs` directory;
 * Merged database dump can be found on `epts-database-merge/script/output`;
 
+## Docker Version
+
+### Prerequisites
+* Docker installed;
+* Git installed;
+
+
+### Instalation, configuration and execution
+* Go to home directory `cd`;
+* Clone the repository `git clone https://github.com/edrisse/epts-database-merge.git`;
+* Go into docker version directory `cd epts-database-merge/docker`;
+* Run `./setup.sh`;
+* Copy the database dumps of the databases to be merged into `dumps-to-process` directory;
+* Run the merge tool `./run-merge-tool.sh`;
+* After excution the logs for the merge of each database can be found on `epts-database-merge/docker/logs` directory;
+* Merged database dump can be found on `epts-database-merge/docker/output`;

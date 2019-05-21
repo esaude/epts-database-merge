@@ -1,3 +1,5 @@
+#docker build --no-cache -t merge-tool/pdi pdi
+
 FROM openjdk:8u131-jdk-alpine
 
 RUN mkdir /root/.kettle
