@@ -6,12 +6,12 @@ This instructions will help you run both versions of the tool.
 
 ## Script Version
 
-## Prerequisites
+### Prerequisites
 * MySQL 5.7 installed;
 * Java 7 or higher installed;
 * Git installed;
 
-## Instalation, configuration and execution
+### Instalation, configuration and execution
 * Go to home directory `cd`;
 * Clone the repository `git clone https://github.com/edrisse/epts-database-merge.git`;
 * Go into script version directory `cd epts-database-merge/script`;
