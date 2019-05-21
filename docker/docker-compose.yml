@@ -4,7 +4,7 @@ services:
     environment:
     - MYSQL_ROOT_PASSWORD=Admin123
     - MYSQL_ROOT_HOST=%
-    image: merge-tool/mysql
+    image: edrisse/merge-tool-mysql
     #build: mysql
     container_name: merge-tool-mysql
     ports:
@@ -19,7 +19,7 @@ services:
     - MERGE_TOOL_DUMPS_DIR=/home/dumps-to-process
     - MERGE_TOOL_OUTPUT_DIR=/home/output
     - MERGE_TOOL_LOGS_DIR=/home/logs
-    image: merge-tool/pdi
+    image: edrisse/merge-tool-pdi
     #build: pdi
     container_name: merge-tool-pdi
     volumes:
