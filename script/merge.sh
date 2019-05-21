@@ -5,6 +5,7 @@ user=$MERGE_TOOL_DB_USER
 dumps_directory=$MERGE_TOOL_DUMPS_DIR
 output_directory=$MERGE_TOOL_OUTPUT_DIR
 logs_directory=$MERGE_TOOL_LOGS_DIR
+pdi_dir=$MERGE_TOOL_PDI_DIR
 
 if [ -z $merge_db ]
 then
@@ -36,6 +37,11 @@ then
     logs_directory="logs"
 fi
 
+if [ -z $pdi_dir ]
+then
+    pdi_dir="/opt/java/pdi-ce-8.2.0.0-342"
+fi
+
 mysql -u$user -pAdmin123 -h$host -e "drop database if exists $merge_db; create database $merge_db;"
 first=1
 for file in "$dumps_directory"/*
@@ -44,15 +50,15 @@ do
     if [ $first -eq 1 ]
     then
         echo "Importing initial database into $merge_db from file $file"
-        mysql -u$user -pAdmin123 -h$MERGE_TOOL_DB_HOST $merge_db < $file
-        mysql -u$user -pAdmin123 -h$MERGE_TOOL_DB_HOST $merge_db < sql-scripts/merge.sql
+        mysql -u$user -pAdmin123 -h$host $merge_db < $file
+        mysql -u$user -pAdmin123 -h$host $merge_db < sql-scripts/merge.sql
         first=0
     else
         echo "Merging database $database from file $file"
-        ./merge-single-database.sh $file $database > "$logs_directory/$database.out"
+        ./merge-single-database.sh $file $database $user $host $pdi_dir > "$logs_directory/$database.out"
     fi
 done
 
 dump_file_name="$merge_db.sql"
 echo "Dumping merge database $merge_db into $dump_file_name"
-mysqldump -u$user -pAdmin123 -h$MERGE_TOOL_DB_HOST $merge_db > "$output_directory/$dump_file_name"
+mysqldump -u$user -pAdmin123 -h$host $merge_db > "$output_directory/$dump_file_name"
