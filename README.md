@@ -14,7 +14,7 @@ This instructions will help you run both versions of the tool.
 ### Instalation, configuration and execution
 * Go to home directory `cd`;
 * Clone the repository `git clone https://github.com/edrisse/epts-database-merge.git`;
-* Run script `~/epts-database-merge/script/sql-scripts/create-elt-user.sql`
+* Run script `~/epts-database-merge/script/sql-scripts/create-elt-user.sql` on local database;
 * Go into script version directory `cd epts-database-merge/script`;
 * Copy the provided `pdi.zip` and `mysql-connector-java.jar` files into `epts-database-merge/script` directory;
 * Run setup script `./setup.sh`;
