@@ -39,7 +39,13 @@ fi
 
 if [ -z $pdi_dir ]
 then
-    pdi_dir="/opt/java/pdi-ce-8.2.0.0-342"
+    pdi_dir="pdi"
+fi
+
+if [ ! -d $pdi_dir ]
+then
+    unzip pdi.zip -d $pdi_dir
+    cp mysql-connector-java.jar $pdi_dir/data-integration/lib
 fi
 
 mysql -u$user -pAdmin123 -h$host -e "drop database if exists $merge_db; create database $merge_db;"

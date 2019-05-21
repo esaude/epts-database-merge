@@ -3,3 +3,6 @@ dumps
 dumps-to-process
 logs
 docker/pdi/etc/pdi-ce-8.2.0.0-342.zip
+pdi.zip
+mysql-connector-java.jar
+pdi
